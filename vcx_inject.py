@@ -2,6 +2,8 @@
 # there's definitely a better way to do this, but I don't negotiate with terrorists
 import os.path
 
+target_name = "cheez"
+
 proj_file = "src/zdoom.vcxproj"
 filters_file = "src/zdoom.vcxproj.filters"
 
@@ -18,7 +20,7 @@ def write_vcxproj(proj_file):
 
     with open(proj_file,"r") as f:
         proj_content = f.read()
-        if "cheez" in proj_content:
+        if "cheez" in proj_content and "gzdoom.exe" not in proj_content:
             print("[!] vcxproj has already been injected. Skipping...")
             return
         proj_content = proj_content.split("\n")
@@ -26,6 +28,12 @@ def write_vcxproj(proj_file):
     idx = 0
     for line_num in range(0,len(proj_content)):
         line = proj_content[line_num]
+        #if ("gzdoom.exe" in line):
+        #    proj_content[line_num] = line.replace("gzdoom.exe",target_name+".exe")
+        #    continue
+        #if ("TargetName" in line):
+        #    proj_content[line_num] = line.replace("gzdoom</TargetName>",target_name+"</TargetName>")
+        #    continue
         if ("<ClInclude" in line): 
             idx = line_num
             break

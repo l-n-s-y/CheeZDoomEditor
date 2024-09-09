@@ -1,0 +1,33 @@
+//*   class FSerializer   *//
+
+//////// Read from object array
+
+// Enter the greater array
+arc.BeginArray(obj_name);
+
+// Enter the object entry
+arc.BeginObject(obj_name);
+
+///////////////////////////////
+
+//// Walk keys to reach destination
+
+for (int i=0; i<rows; i++) {
+	arc.GetKey();
+}
+
+///////////////////////////////////
+
+///////////// Read non-string value
+
+// Where T is int,float,bool,null
+T out;
+arc(value,out);
+
+///////////////////////////////////
+
+////////////////// Read string value
+
+const char out[64] = arc.GetString(key)
+
+/////////////////////////////////////
