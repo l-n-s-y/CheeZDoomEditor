@@ -25,7 +25,7 @@ python3 ..\..\vcx_inject.py
 start GZDoom.sln
 cd ..\..
 echo CheeZ project has been constructed
-echo
+echo ""
 echo You'll need to build ZMUSIC.DLL too
-echo
+echo ""
 echo Now go find a DOOM.wad
